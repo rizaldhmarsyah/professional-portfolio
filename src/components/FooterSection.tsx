@@ -4,9 +4,9 @@ export default function FooterSection() {
   return (
     <footer className="sticky bottom-0 z-0 w-full min-h-[50vh] sm:min-h-[55vh] bg-[#0A0A0A] text-[#f4ede6] flex flex-col justify-center items-center px-6 sm:px-12 md:px-16 lg:px-20 py-16 sm:py-20 select-none overflow-hidden">
       {/* KONTEN UTAMA FOOTER */}
-      <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center lg:items-center gap-10 my-auto">
-        {/* BOX INFORMASI KIRI (CENTERED DI MOBILE, LEFT-ALIGNED DI DESKTOP) */}
-        <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-4">
+      <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-10 my-auto">
+        {/* BOX INFORMASI KIRI (CENTERED DI DESKTOP & MOBILE) */}
+        <div className="flex flex-col items-center text-center gap-4">
           <div className="border border-white/30 text-xs font-mono uppercase tracking-wider bg-[#0A0A0A]">
             {/* BARIS TOP */}
             <div className="px-4 py-2 border-b border-white/30 text-center">
@@ -45,9 +45,17 @@ export default function FooterSection() {
             </div>
           </div>
 
-          <span className="text-[11px] font-mono text-white/40 tracking-wider">
-            &copy;2026 RIZAL, ALL RIGHTS RESERVED
-          </span>
+          {/* TECH STACK BADGE & COPYRIGHT (CENTERED) */}
+          <div className="flex flex-col items-center gap-1.5">
+            <span className="text-[11px] font-mono text-white/40 tracking-wider">
+              &copy;2026 RIZAL DHMARSYAH, ALL RIGHTS RESERVED
+            </span>
+
+            <div className="flex items-center gap-1.5 text-[10px] font-mono text-white/50 bg-white/[0.04] border border-white/10 px-2.5 py-1 rounded-md">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span>HAND-CODED WITH NEXT.JS & GSAP</span>
+            </div>
+          </div>
         </div>
 
         {/* KONTAK DAN IKON KANAN */}

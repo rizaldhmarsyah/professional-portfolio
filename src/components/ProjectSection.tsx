@@ -31,7 +31,7 @@ const PROJECTS: Project[] = [
     id: "01",
     type: "experience",
     typeLabel: "WORK EXPERIENCE",
-    title: "WEB ADMINISTRATOR - Intern",
+    title: "Web Administrator - Intern",
     company: "Lembaga Layanan Pendidikan Tinggi (LLDIKTI) Wilayah III Jakarta",
     period: "September 2025 - February 2026",
     description:
@@ -102,7 +102,6 @@ const PROJECTS: Project[] = [
   },
 ];
 
-// Continuous Repeating Scramble Text Component
 function ScrambleText({ text, active }: { text: string; active: boolean }) {
   const [displayText, setDisplayText] = useState(text);
   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-=[]{}|;:,.<>?";
@@ -401,8 +400,8 @@ export default function ProjectSection() {
     >
       <div className="sticky top-0 h-[100dvh] w-full flex items-center justify-center overflow-hidden">
         {/* OVERLAY FIXED HEADER UI DESKTOP */}
-        <div className="hidden md:flex absolute top-16 left-16 right-16 z-50 justify-between items-start pointer-events-none">
-          <div className="relative w-28 h-28 rounded-full flex flex-col items-center justify-center text-center bg-[#181818]/80 border border-white/10 select-none">
+        <div className="hidden md:flex absolute top-12 left-16 right-16 z-50 justify-between items-start pointer-events-none">
+          <div className="relative w-24 h-24 rounded-full flex flex-col items-center justify-center text-center bg-[#181818]/80 border border-white/10 select-none">
             <svg
               className="absolute -inset-2 w-[calc(100%+16px)] h-[calc(100%+16px)] -rotate-90 pointer-events-none overflow-visible"
               viewBox="0 0 100 100"
@@ -486,7 +485,7 @@ export default function ProjectSection() {
                 ref={(el) => {
                   cardsRef.current[index] = el;
                 }}
-                className="absolute inset-0 w-full h-full border border-white/10 px-4 pt-14 pb-4 md:p-16 lg:p-20 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-hidden will-change-transform bg-[#0C0C0C]"
+                className="absolute inset-0 w-full h-full border border-white/10 px-4 pt-14 pb-4 md:px-14 md:py-10 lg:px-20 lg:py-12 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-hidden will-change-transform bg-[#0C0C0C]"
                 style={{
                   zIndex: index + 1,
                 }}
@@ -503,11 +502,8 @@ export default function ProjectSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C0C] via-[#0C0C0C]/85 to-transparent" />
                 </div>
 
-                {/* =========================================================
-                    TAMPILAN MOBILE (VISIT SITE BERADA DI PALING BAWAH GAMBAR)
-                ========================================================= */}
+                {/* TAMPILAN MOBILE */}
                 <div className="flex md:hidden flex-col h-full z-10 overflow-y-auto pr-1 space-y-3.5 pb-8">
-                  {/* 1. Header Mini Progress & Badge */}
                   <div className="flex items-center justify-between w-full border-b border-white/10 pb-2 shrink-0">
                     <div className="flex items-center gap-1.5">
                       <div className="w-6 h-6 rounded-full border border-white/30 flex items-center justify-center bg-white/5 text-[8px] font-mono">
@@ -537,9 +533,8 @@ export default function ProjectSection() {
                     </div>
                   </div>
 
-                  {/* 2. Judul & Subtitle Perusahaan */}
                   <div className="flex flex-col gap-0.5 text-left shrink-0">
-                    <h2 className="text-xl font-bold tracking-tight text-white uppercase leading-tight">
+                    <h2 className="text-xl font-bold tracking-tight text-white leading-tight font-sans">
                       {project.title}
                     </h2>
                     {project.company && (
@@ -566,7 +561,6 @@ export default function ProjectSection() {
                     )}
                   </div>
 
-                  {/* 3. Deskripsi & About Teks */}
                   <div className="flex flex-col gap-2 shrink-0">
                     <div className="bg-white/[0.06] border border-white/15 p-2.5 rounded-lg w-full">
                       <p className="text-white/90 text-[10px] leading-relaxed font-light">
@@ -583,7 +577,6 @@ export default function ProjectSection() {
                     )}
                   </div>
 
-                  {/* 4. Mockup Gambar Stack */}
                   <div className="w-full flex justify-center items-center shrink-0 pt-1">
                     <StackedBrowserMockup
                       images={project.images}
@@ -591,7 +584,6 @@ export default function ProjectSection() {
                     />
                   </div>
 
-                  {/* 5. Tombol Action Visit Site / Status (Dipindah Ke Paling Bawah Gambar) */}
                   <div className="w-full flex justify-center shrink-0 pt-1">
                     {project.link ? (
                       <a
@@ -610,29 +602,26 @@ export default function ProjectSection() {
                   </div>
                 </div>
 
-                {/* =========================================================
-                    TAMPILAN DESKTOP (100% ASLI AWAL KAMU - UNTOUCHED)
-                ========================================================= */}
+                {/* TAMPILAN DESKTOP */}
                 <div className="hidden md:flex flex-col justify-between h-full">
-                  {/* Tag & Kategori Kanan Kartu Desktop */}
-                  <div className="flex justify-end items-start z-10 w-full pt-2">
+                  <div className="flex justify-end items-start z-10 w-full pt-1">
                     <div className="inline-flex flex-col items-end text-right w-fit max-w-full">
                       {project.type === "experience" ? (
                         <>
-                          <span className="inline-block bg-white border border-white/30 shadow-2xl px-3.5 py-1.5 rounded-lg text-[14px] font-mono tracking-[0.2em] text-black uppercase font-extrabold mb-1 select-none">
+                          <span className="inline-block bg-white border border-white/30 shadow-2xl px-3.5 py-1.5 rounded-lg text-[13px] font-mono tracking-[0.2em] text-black uppercase font-extrabold mb-1 select-none">
                             <ScrambleText
                               text={project.typeLabel}
                               active={isCardActive}
                             />
                           </span>
 
-                          <div className="w-full h-[1px] bg-white/20 my-2" />
+                          <div className="w-full h-[1px] bg-white/20 my-1.5" />
 
-                          <span className="text-[18px] font-sans font-semibold tracking-wide text-white leading-tight">
+                          <span className="text-[16px] font-sans font-semibold tracking-wide text-white leading-tight">
                             {project.company}
                           </span>
 
-                          <div className="mt-2.5 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FB4516]/10 border border-[#FB4516]/40">
+                          <div className="mt-2 inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-[#FB4516]/10 border border-[#FB4516]/40">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#FB4516] animate-pulse" />
                             <span className="text-xs font-mono text-[#FF7A59] font-medium tracking-wider">
                               {project.period}
@@ -641,16 +630,16 @@ export default function ProjectSection() {
                         </>
                       ) : (
                         <>
-                          <span className="inline-block bg-white border border-white/30 shadow-2xl px-3.5 py-1.5 rounded-lg text-[14px] font-mono tracking-[0.2em] text-black uppercase font-extrabold mb-1 select-none">
+                          <span className="inline-block bg-white border border-white/30 shadow-2xl px-3.5 py-1.5 rounded-lg text-[13px] font-mono tracking-[0.2em] text-black uppercase font-extrabold mb-1 select-none">
                             <ScrambleText
                               text={project.category || "Real Project Website"}
                               active={isCardActive}
                             />
                           </span>
 
-                          <div className="w-full h-[1px] bg-white/20 my-2" />
+                          <div className="w-full h-[1px] bg-white/20 my-1.5" />
 
-                          <div className="flex flex-wrap justify-end gap-1.5 mt-1">
+                          <div className="flex flex-wrap justify-end gap-1.5 mt-0.5">
                             {project.tags?.map((tag, tIdx) => (
                               <span
                                 key={tIdx}
@@ -665,28 +654,22 @@ export default function ProjectSection() {
                     </div>
                   </div>
 
-                  {/* Konten Utama Desktop */}
-                  <div className="grid grid-cols-12 gap-12 items-center z-10 my-auto w-full max-w-7xl mx-auto pt-10">
-                    <div className="col-span-6 flex flex-col items-start gap-4">
-                      <h2
-                        className={`${
-                          project.type === "experience"
-                            ? "text-[54px]"
-                            : "text-[68px]"
-                        } font-light tracking-tight text-white uppercase font-sans leading-none`}
-                      >
+                  <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center z-10 my-auto w-full max-w-7xl mx-auto pt-4">
+                    <div className="col-span-6 flex flex-col items-start">
+                      {/* MARGIN BOTTOM DITINGKATKAN MENJADI mb-5 lg:mb-6 */}
+                      <h2 className="font-sans font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-white leading-[1.08] mb-5 lg:mb-6">
                         {project.title}
                       </h2>
 
-                      <div className="bg-white/[0.08] border border-white/20 p-4 rounded-xl max-w-md">
-                        <p className="text-white/90 text-sm leading-relaxed font-light">
+                      <div className="bg-white/[0.08] border border-white/20 p-3 lg:p-3.5 rounded-xl max-w-md">
+                        <p className="text-white/90 text-xs lg:text-sm leading-relaxed font-light">
                           {project.description}
                         </p>
                       </div>
 
                       {project.about && (
-                        <div className="bg-white/[0.05] border border-white/15 p-3.5 rounded-xl max-w-md">
-                          <p className="text-white/60 text-xs leading-relaxed font-light italic">
+                        <div className="bg-white/[0.05] border border-white/15 p-2.5 lg:p-3 rounded-xl max-w-md mt-2.5 lg:mt-3">
+                          <p className="text-white/60 text-[11px] lg:text-xs leading-relaxed font-light italic">
                             {project.about}
                           </p>
                         </div>
@@ -697,12 +680,12 @@ export default function ProjectSection() {
                           href={project.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white/[0.08] border border-white/20 text-xs font-mono tracking-widest text-[#FF4D00] hover:text-white hover:border-[#FF4D00]/50 transition-colors uppercase mt-1 font-medium"
+                          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white/[0.08] border border-white/20 text-xs font-mono tracking-widest text-[#FF4D00] hover:text-white hover:border-[#FF4D00]/50 transition-colors uppercase font-medium mt-3 lg:mt-3.5"
                         >
                           ( VISIT SITE <span className="text-sm">↗</span> )
                         </a>
                       ) : (
-                        <span className="inline-block px-3.5 py-1.5 rounded-lg bg-white/[0.05] border border-white/15 text-xs font-mono tracking-widest text-white/40 uppercase mt-1">
+                        <span className="inline-block px-3.5 py-1.5 rounded-lg bg-white/[0.05] border border-white/15 text-xs font-mono tracking-widest text-white/40 uppercase font-medium mt-3 lg:mt-3.5">
                           ( {project.status} )
                         </span>
                       )}
