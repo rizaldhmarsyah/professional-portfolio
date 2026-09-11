@@ -55,14 +55,9 @@ export default function Navbar() {
     if (isScrollingToTop.current) return;
     isScrollingToTop.current = true;
 
-    // @ts-ignore
-    if (
-      typeof window !== "undefined" &&
-      window.lenis &&
-      typeof window.lenis.scrollTo === "function"
-    ) {
-      // @ts-ignore
-      window.lenis.scrollTo(0, {
+    const win = typeof window !== "undefined" ? (window as any) : null;
+    if (win && win.lenis && typeof win.lenis.scrollTo === "function") {
+      win.lenis.scrollTo(0, {
         duration: 1.2,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         onComplete: () => {
@@ -111,13 +106,12 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Builder Animasi GSAP Pop-up (Scale + Text Stagger Animation)
+  // Builder Animasi GSAP Pop-up (Diubah menerima HTMLDivElement | null)
   const createPopUpTimeline = (
-    cardRef: React.RefObject<HTMLDivElement>,
+    card: HTMLDivElement | null,
   ): gsap.core.Timeline | null => {
-    if (!cardRef.current) return null;
+    if (!card) return null;
 
-    const card = cardRef.current;
     const texts = card.querySelectorAll(".pop-text");
 
     gsap.set(card, {
@@ -154,14 +148,14 @@ export default function Navbar() {
 
   useEffect(() => {
     // Inisialisasi Timeline Desktop
-    aboutTl.current = createPopUpTimeline(aboutCardRef);
-    worksTl.current = createPopUpTimeline(worksCardRef);
-    contactTl.current = createPopUpTimeline(contactCardRef);
+    aboutTl.current = createPopUpTimeline(aboutCardRef.current);
+    worksTl.current = createPopUpTimeline(worksCardRef.current);
+    contactTl.current = createPopUpTimeline(contactCardRef.current);
 
     // Inisialisasi Timeline Mobile
-    mobileAboutTl.current = createPopUpTimeline(mobileAboutCardRef);
-    mobileWorksTl.current = createPopUpTimeline(mobileWorksCardRef);
-    mobileContactTl.current = createPopUpTimeline(mobileContactCardRef);
+    mobileAboutTl.current = createPopUpTimeline(mobileAboutCardRef.current);
+    mobileWorksTl.current = createPopUpTimeline(mobileWorksCardRef.current);
+    mobileContactTl.current = createPopUpTimeline(mobileContactCardRef.current);
   }, []);
 
   // Hover Controls Desktop

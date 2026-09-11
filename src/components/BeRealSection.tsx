@@ -118,6 +118,7 @@ export default function BeRealSection() {
             pointerEvents: "none",
           }}
         >
+          {/* @ts-ignore */}
           <ShaderGradient
             animate="on"
             type="waterPlane"
