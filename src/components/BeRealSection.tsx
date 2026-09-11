@@ -13,10 +13,13 @@ const ShaderGradientCanvas = dynamic(
   () => import("shadergradient").then((mod) => mod.ShaderGradientCanvas),
   { ssr: false },
 );
-const ShaderGradient = dynamic(
+const ShaderGradientComponent = dynamic(
   () => import("shadergradient").then((mod) => mod.ShaderGradient),
   { ssr: false },
 );
+
+// Cast sebagai any agar TypeScript mematikan pemeriksaan props khusus komponen ini
+const ShaderGradient = ShaderGradientComponent as any;
 
 export default function BeRealSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -55,12 +58,12 @@ export default function BeRealSection() {
             trigger: sectionRef.current,
             start: "top bottom",
             end: "bottom top",
-            scrub: 1, // Diberi smoothing scrub 1s agar gerakan ekstra halus
+            scrub: 1,
           },
         },
       );
 
-      // 2. Paralaks Teks Utama (Ditingkatkan range-nya agar efek floating jauh lebih terasa)
+      // 2. Paralaks Teks Utama
       gsap.fromTo(
         textWrapRef.current,
         { yPercent: 25 },
@@ -71,7 +74,7 @@ export default function BeRealSection() {
             trigger: sectionRef.current,
             start: "top bottom",
             end: "bottom top",
-            scrub: 1, // Smooth scrub penyeimbang
+            scrub: 1,
           },
         },
       );
@@ -118,7 +121,6 @@ export default function BeRealSection() {
             pointerEvents: "none",
           }}
         >
-          {/* @ts-ignore */}
           <ShaderGradient
             animate="on"
             type="waterPlane"
@@ -159,7 +161,7 @@ export default function BeRealSection() {
         }}
       />
 
-      {/* TEXT CONTENT OVERLAY (DILENGKAPI PARALLAX SCRUB EKSTRA SMOOTH) */}
+      {/* TEXT CONTENT OVERLAY */}
       <div
         ref={textWrapRef}
         className="relative z-20 flex flex-col items-center justify-center gap-2 sm:gap-3 text-center pointer-events-none px-6 my-auto will-change-transform"
