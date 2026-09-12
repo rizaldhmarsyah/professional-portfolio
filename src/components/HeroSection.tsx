@@ -123,7 +123,7 @@ export default function HeroSection() {
       />
 
       {/* =========================================================
-          1. TAMPILAN DESKTOP (100% ASLI KODE AWAL KAMU - UNTOUCHED)
+          1. TAMPILAN DESKTOP
       ========================================================= */}
       <div className="hidden md:flex flex-col justify-between h-[86vh] min-h-[580px] px-10 pt-24 pb-4 relative z-10">
         <div className="grid grid-cols-12 gap-8 items-end my-auto py-4">
@@ -196,18 +196,23 @@ export default function HeroSection() {
           <div className="uppercase tracking-widest text-[11px]">
             Scroll down
           </div>
-          <button className="flex items-center space-x-2 border border-neutral-800 hover:border-neutral-600 px-5 py-2 rounded-full text-white text-xs font-sans tracking-wide transition-all hover:bg-white hover:text-black">
-            <span>Download CV</span>
+          <a
+            href="/RIZAL NUR DHMARSYAH_CV_EN.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-2 border border-neutral-800 hover:border-neutral-600 px-5 py-2 rounded-full text-white text-xs font-sans tracking-wide transition-all hover:bg-white hover:text-black cursor-pointer"
+          >
+            <span>Preview CV</span>
             <span className="text-xs">↗</span>
-          </button>
+          </a>
         </footer>
       </div>
 
       {/* =========================================================
-          2. TAMPILAN MOBILE (GAMBAR LEBAR MEGAR SESUAI GARIS MERAH)
+          2. TAMPILAN MOBILE
       ========================================================= */}
       <div className="flex md:hidden flex-col px-5 pt-16 pb-3 relative z-10 space-y-4">
-        {/* 1. GAMBAR PALING ATAS (Lebar Penuh Megar) */}
+        {/* 1. GAMBAR PALING ATAS */}
         <div className="w-full flex justify-center pt-1">
           <div className="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-md overflow-hidden border border-neutral-800/80 bg-neutral-900/50 backdrop-blur-sm shadow-xl">
             <img
@@ -268,16 +273,21 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* 3. FOOTER BAR (Menyambung langsung tepat di bawah Teks) */}
+        {/* 3. FOOTER BAR MOBILE */}
         <footer className="w-full flex items-center justify-between pt-2.5 border-t border-neutral-900/80 text-[10px] font-mono text-neutral-500">
           <div>/2026/</div>
           <div className="uppercase tracking-widest text-[9px] text-neutral-400 font-mono">
             SCROLL DOWN
           </div>
-          <button className="flex items-center space-x-1 border border-neutral-800 px-3 py-1 rounded-full text-white text-[10px] font-sans tracking-wide active:scale-95 transition-transform">
-            <span>Download CV</span>
+          <a
+            href="/RIZAL NUR DHMARSYAH_CV_EN.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-1 border border-neutral-800 px-3 py-1 rounded-full text-white text-[10px] font-sans tracking-wide active:scale-95 transition-transform cursor-pointer"
+          >
+            <span>Preview CV</span>
             <span className="text-[9px]">↗</span>
-          </button>
+          </a>
         </footer>
       </div>
     </div>

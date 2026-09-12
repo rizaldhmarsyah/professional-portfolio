@@ -2,11 +2,11 @@
 
 export default function FooterSection() {
   return (
-    <footer className="sticky bottom-0 z-0 w-full min-h-[50vh] sm:min-h-[55vh] bg-[#0A0A0A] text-[#f4ede6] flex flex-col justify-center items-center px-6 sm:px-12 md:px-16 lg:px-20 py-16 sm:py-20 select-none overflow-hidden">
+    <footer className="sticky bottom-0 z-0 w-full min-h-[50vh] sm:min-h-[55vh] bg-[#0A0A0A] text-[#f4ede6] flex flex-col justify-center items-center px-6 sm:px-12 md:px-16 lg:px-20 py-16 sm:py-20 overflow-hidden">
       {/* KONTEN UTAMA FOOTER */}
       <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-10 my-auto">
-        {/* BOX INFORMASI KIRI (CENTERED DI DESKTOP & MOBILE) */}
-        <div className="flex flex-col items-center text-center gap-4">
+        {/* BOX INFORMASI KIRI (CENTERED) */}
+        <div className="flex flex-col items-center text-center gap-4 select-none">
           <div className="border border-white/30 text-xs font-mono uppercase tracking-wider bg-[#0A0A0A]">
             {/* BARIS TOP */}
             <div className="px-4 py-2 border-b border-white/30 text-center">
@@ -58,29 +58,41 @@ export default function FooterSection() {
           </div>
         </div>
 
-        {/* KONTAK DAN IKON KANAN */}
-        <div className="flex flex-col items-center lg:items-end gap-4 font-sans text-xs sm:text-sm text-white/80 w-full lg:w-auto">
-          {/* BARIS 1: KONTAK TEKS */}
+        {/* KONTAK 3 SUSUN RATA TENGAH */}
+        <div className="flex flex-col items-center text-center gap-4 font-sans text-xs sm:text-sm text-white/80 w-full lg:w-auto">
+          {/* SUSUN 1: CURRICULUM VITAE */}
+          <div className="flex items-center justify-center">
+            <a
+              href="/RIZAL NUR DHMARSYAH_CV_EN.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-white transition-colors cursor-pointer select-text font-mono text-white/90 underline underline-offset-4 decoration-white/20 hover:decoration-white"
+            >
+              Curriculum Vitae ↗
+            </a>
+          </div>
+
+          {/* SUSUN 2: NO WA & EMAIL */}
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             <a
               href="https://wa.me/6288292233779"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-white transition-colors"
+              className="hover:text-white transition-colors cursor-pointer select-text font-mono"
             >
               +62 882 9223 3779
             </a>
-            <span className="text-white/20">•</span>
+            <span className="text-white/20 select-none">•</span>
             <a
               href="mailto:rizalnur.work@gmail.com"
-              className="hover:text-white transition-colors"
+              className="hover:text-white transition-colors cursor-pointer select-text font-mono"
             >
               rizalnur.work@gmail.com
             </a>
           </div>
 
-          {/* BARIS 2: LOGO IKON (CENTERED) */}
-          <div className="flex items-center justify-center w-full gap-5 pt-1 text-white/70">
+          {/* SUSUN 3: LOGO-LOGO SOSIAL MEDIA */}
+          <div className="flex items-center justify-center w-full gap-5 pt-1 text-white/70 select-none">
             {/* LinkedIn */}
             <a
               href="https://linkedin.com"

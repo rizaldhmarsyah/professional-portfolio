@@ -38,7 +38,7 @@ const PROJECTS: Project[] = [
       "Spearheaded an end-to-end revamp of the official website to significantly elevate performance and user experience. Handled full-stack development responsibilities by restructuring the modern front-end interface, optimizing underlying database systems, and managing ongoing platform maintenance.",
     about:
       "LLDIKTI Wilayah III Jakarta is an official government agency under the Ministry of Higher Education, Science, and Technology, tasked with supervising and improving higher education quality across Jakarta.",
-    link: "#",
+    link: "https://lldikti3.kemdiktisaintek.go.id/adia/",
     bgImage: "/ai-bg.webp",
     images: ["/adia-1.webp", "/adia-3.webp", "/adia-2.webp", "/adia-4.webp"],
   },
@@ -53,7 +53,7 @@ const PROJECTS: Project[] = [
       "Developed and launched an end-to-end recruitment platform using React.js and Next.js. Crafted highly responsive UI components with Framer Motion and Tailwind CSS, backed by seamless API integrations to ensure optimal performance.",
     about:
       "PT. Amal Ichwan Arindo is a professional human resource and talent acquisition agency delivering modern workforce solutions and staffing services.",
-    link: "#",
+    link: "https://www.sahabatmerantau.id",
     bgImage: "/sm-bg.webp",
     images: ["/sm-1.webp", "/sm-2.webp", "/sm-3.webp"],
   },
@@ -89,7 +89,7 @@ const PROJECTS: Project[] = [
       "A custom full-stack digital publishing platform built to power a high-traffic football media brand. Features a custom CMS admin dashboard with live article preview, dynamic content categorization (La Masia, First Team, Transfers), and seamless live Instagram feed integrations.",
     about:
       "Barcainspo is an independent digital media platform dedicated to FC Barcelona news, tactical analysis, and football culture—consistently generating 1 to 6 million monthly impressions across its media channels.",
-    link: "#",
+    link: "https://barcainspo.vercel.app",
     bgImage: "/bi-bg.webp",
     images: [
       "/bi-1.webp",
