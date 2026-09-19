@@ -129,7 +129,7 @@ export default function SkillsSection() {
   const categoryBlocksRef = useRef<(HTMLDivElement | null)[]>([]);
 
   const skillsParagraph =
-    "I deliver end-to-end full-stack web solutions, combining robust backend architectures with pixel-perfect, high-performance interactive frontend experiences.";
+    "I architect end-to-end full-stack web platforms and AI-driven solutions—combining scalable multi-database backends, serverless cloud caching, and pixel-perfect interactive frontend experiences.";
 
   const skillsData = [
     {
@@ -148,9 +148,9 @@ export default function SkillsSection() {
       category: "Backend Development",
       count: "(02)",
       items: [
-        "PHP Web Development (OOP & MVC)",
+        "Laravel Framework & PHP (OOP & MVC)",
         "Node.js & Express API Basics",
-        "MySQL Relational Database Management",
+        "PostgreSQL & MySQL Relational Database",
         "MongoDB & Mongoose Schema Design",
         "Authentication & Session Management",
       ],
@@ -160,10 +160,22 @@ export default function SkillsSection() {
       count: "(03)",
       items: [
         "System Analysis & Database Design (ERD / UML)",
-        "Domain & Web Hosting Management (DNS & SSL)",
+        "Google Cloud Platform (GCP) & Web Hosting",
+        "Domain Management (DNS & SSL)",
         "Git & GitHub Version Control Workflows",
         "Vercel Deployment & Environment Setup",
         "Figma-to-Code Layout Translation",
+      ],
+    },
+    {
+      category: "AI Engine & Cloud Caching",
+      count: "(04)",
+      items: [
+        "FastAPI & Python REST API Design",
+        "LLM Integration (Google Gemini API) & Prompt Engineering", // <-- Perjelas LLM di sini
+        "Real-time Web Search Scraping API (Tavily)",
+        "Upstash Redis Cloud Caching & TTL Strategies",
+        "Serverless Microservices Architecture",
       ],
     },
   ];
@@ -321,10 +333,6 @@ export default function SkillsSection() {
           </div>
 
           <div className="space-y-2 md:space-y-3 max-w-sm">
-            <span className="font-mono text-[11px] text-[#f4ede6]/40 tracking-widest block uppercase">
-              (IS-77)
-            </span>
-
             <p
               ref={paragraphRef}
               className="font-sans text-xs sm:text-sm leading-relaxed text-[#f4ede6] flex flex-wrap gap-x-[0.28em] gap-y-1"
@@ -378,7 +386,7 @@ export default function SkillsSection() {
                     className="flex justify-between items-center py-3 border-b border-white/10 hover:border-white/40 transition-colors group backdrop-blur-[1px]"
                   >
                     <div className="overflow-hidden inline-block">
-                      <span className="font-sans text-base sm:text-lg text-[#f4ede6]/80 group-hover:text-[#f4ede6] transition-colors inline-block">
+                      <span className="font-sans text-base sm:text-lg text-white group-hover:text-[#f4ede6] transition-colors inline-block">
                         <span className="mask-text inline-block will-change-transform">
                           {item}
                         </span>
