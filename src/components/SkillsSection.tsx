@@ -172,7 +172,7 @@ export default function SkillsSection() {
       count: "(04)",
       items: [
         "FastAPI & Python REST API Design",
-        "LLM Integration (Google Gemini API) & Prompt Engineering", // <-- Perjelas LLM di sini
+        "Multi-LLM Integration (Google Gemini, Groq / Llama 3) & Prompt Engineering",
         "Real-time Web Search Scraping API (Tavily)",
         "Upstash Redis Cloud Caching & TTL Strategies",
         "Serverless Microservices Architecture",
