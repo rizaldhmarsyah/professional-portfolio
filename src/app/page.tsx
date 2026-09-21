@@ -14,6 +14,8 @@ import ProjectSection from "@/components/ProjectSection";
 import BeRealSection from "@/components/BeRealSection";
 import SkillsSection from "@/components/SkillsSection";
 import FooterSection from "@/components/FooterSection";
+import AboutSection from "@/components/AboutSection";
+import HorizontalShowcaseSection from "@/components/HorizontalShowcaseSection";
 
 export default function Home() {
   const [isPreloaderActive, setIsPreloaderActive] = useState(true);
@@ -69,9 +71,10 @@ export default function Home() {
         {/* LAYER DEPAN (Z-10): Content Flow */}
         <div className="relative z-10 bg-[#0C0C0C] shadow-[0_30px_60px_rgba(0,0,0,0.95)]">
           <div className="relative z-20 bg-[#0C0C0C]">
+            <AboutSection />
             <WorksHeader />
             <ProjectSection />
-            <RunningText3 />
+            <HorizontalShowcaseSection />
           </div>
 
           <div className="relative z-10">

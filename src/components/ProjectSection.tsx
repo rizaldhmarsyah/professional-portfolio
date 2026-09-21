@@ -63,9 +63,9 @@ const PROJECTS: Project[] = [
     typeLabel: "FEATURED PROJECT",
     title: "Pixel Sticker",
     category: "Real Project Website",
-    tags: ["Full Stack Website", "AI Chatbot"],
+    tags: ["FULL STACK", "AI CHATBOT", "AI WORKFLOW"],
     description:
-      "Designed and built a complete digital ecosystem for Pixel Sticker. Combines a modern customer-facing web platform featuring AI-assisted customer service and instant pricing estimation with an internal administrative portal for managing vehicle databases, materials, workshop POS invoices, and real-time financial analytics.",
+      "Designed and built a complete digital ecosystem for Pixel Sticker leveraging AI-accelerated full-stack development. Combines a modern customer-facing web platform featuring an intelligent AI-assisted customer service agent and automated pricing estimation with an internal administrative portal for managing vehicle databases, materials, workshop POS invoices, and real-time financial analytics.",
     about:
       "Pixel Sticker is a specialized automotive workshop offering premium Paint Protection Film (PPF), vinyl wraps, and custom cutting sticker services with high-precision craftsmanship.",
     link: "https://pixelsticker.biz.id",
@@ -84,9 +84,9 @@ const PROJECTS: Project[] = [
     typeLabel: "FEATURED PROJECT",
     title: "Barcainspo",
     category: "Real Project Website",
-    tags: ["NEXT.JS", "FULL STACK", "CMS BACKEND", "LIVE EDITOR"],
+    tags: ["NEXT.JS", "FULL STACK", "AI CONTENT CMS", "LIVE EDITOR"],
     description:
-      "A custom full-stack digital publishing platform built to power a high-traffic football media brand. Features a custom CMS admin dashboard with live article preview, dynamic content categorization (La Masia, First Team, Transfers), and seamless live Instagram feed integrations.",
+      "A custom full-stack digital publishing platform built to power a high-traffic football media brand, engineered using AI-driven development workflows. Features a custom CMS admin dashboard with AI-assisted content drafting, live article preview, dynamic content categorization (La Masia, First Team, Transfers), and seamless live Instagram feed integrations.",
     about:
       "Barcainspo is an independent digital media platform dedicated to FC Barcelona news, tactical analysis, and football culture—consistently generating 1 to 6 million monthly impressions across its media channels.",
     link: "https://barcainspo.vercel.app",
@@ -303,6 +303,10 @@ export default function ProjectSection() {
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
   const currentProjectRef = useRef(0);
 
+  // State & Ref untuk Pop-up Warning Scroll
+  const [showScrollWarning, setShowScrollWarning] = useState(false);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
   useEffect(() => {
     const cards = cardsRef.current.filter(Boolean);
     if (!cards.length) return;
@@ -326,6 +330,13 @@ export default function ProjectSection() {
         }
       });
 
+      const clearScrollTimer = () => {
+        if (scrollTimeoutRef.current) {
+          clearTimeout(scrollTimeoutRef.current);
+          scrollTimeoutRef.current = null;
+        }
+      };
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
@@ -341,6 +352,25 @@ export default function ProjectSection() {
               currentProjectRef.current = newIndex;
               setCurrentProjectIndex(newIndex);
             }
+
+            // Sembunyikan pop-up saat user sedang melakukan scroll
+            setShowScrollWarning(false);
+            clearScrollTimer();
+
+            // Pasang timer idle: Jika berhenti scroll selama 1.5 detik (sebelum ujung akhir), tampilkan pop-up di atas
+            if (self.isActive && self.progress < 0.95) {
+              scrollTimeoutRef.current = setTimeout(() => {
+                setShowScrollWarning(true);
+              }, 1500);
+            }
+          },
+          onLeave: () => {
+            setShowScrollWarning(false);
+            clearScrollTimer();
+          },
+          onLeaveBack: () => {
+            setShowScrollWarning(false);
+            clearScrollTimer();
           },
         },
       });
@@ -390,7 +420,10 @@ export default function ProjectSection() {
       }
     }, containerRef);
 
-    return () => ctx.revert();
+    return () => {
+      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+      ctx.revert();
+    };
   }, []);
 
   return (
@@ -398,6 +431,38 @@ export default function ProjectSection() {
       ref={containerRef}
       className="relative w-full h-[250vh] md:h-[600vh] bg-[#0d0d0d] text-white"
     >
+      {/* POP UP WARNING - IDLE SCROLL REMINDER (DI ATAS MID-SCREEN) */}
+      <div
+        className={`fixed top-6 md:top-8 left-1/2 -translate-x-1/2 z-[100] transition-all duration-500 ease-out pointer-events-none ${
+          showScrollWarning
+            ? "opacity-100 translate-y-0 scale-100"
+            : "opacity-0 -translate-y-4 scale-95"
+        }`}
+      >
+        <div className="flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#141414]/90 border border-[#FB4516]/40 shadow-[0_10px_25px_rgba(251,69,22,0.25)] backdrop-blur-md">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FB4516] opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FB4516]"></span>
+          </span>
+          <span className="text-[11px] md:text-xs font-mono text-white/90 tracking-wider font-medium uppercase flex items-center gap-1.5 select-none">
+            Keep scrolling to explore
+            <svg
+              className="w-3.5 h-3.5 text-[#FB4516] animate-bounce mt-0.5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2.5}
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+
       <div className="sticky top-0 h-[100dvh] w-full flex items-center justify-center overflow-hidden">
         {/* OVERLAY FIXED HEADER UI DESKTOP */}
         <div className="hidden md:flex absolute top-12 left-16 right-16 z-50 justify-between items-start pointer-events-none">
@@ -656,7 +721,6 @@ export default function ProjectSection() {
 
                   <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center z-10 my-auto w-full max-w-7xl mx-auto pt-4">
                     <div className="col-span-6 flex flex-col items-start">
-                      {/* MARGIN BOTTOM DITINGKATKAN MENJADI mb-5 lg:mb-6 */}
                       <h2 className="font-sans font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-white leading-[1.08] mb-5 lg:mb-6">
                         {project.title}
                       </h2>

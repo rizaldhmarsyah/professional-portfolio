@@ -141,7 +141,8 @@ export default function HeroSection() {
           {/* Headline Desktop */}
           <div className="col-span-8 flex flex-col justify-end">
             <div className="flex flex-col gap-1 text-left">
-              <div className="relative overflow-hidden inline-block w-fit">
+              {/* Line 1 */}
+              <div className="relative overflow-hidden inline-block w-fit pb-[0.15em] -mb-[0.15em]">
                 <h1 className="text-5xl lg:text-6xl xl:text-[66px] font-semibold tracking-[-0.035em] leading-[1.05] text-white">
                   <span
                     ref={(el) => {
@@ -157,14 +158,15 @@ export default function HeroSection() {
                 </h1>
               </div>
 
-              <div className="relative overflow-hidden inline-block w-fit">
+              {/* Line 2 */}
+              <div className="relative overflow-hidden inline-block w-fit pb-[0.15em] -mb-[0.15em]">
                 <h1
                   ref={(el) => {
                     linesRef.current[1] = el;
                   }}
                   className="text-5xl lg:text-6xl xl:text-[66px] font-semibold tracking-[-0.035em] leading-[1.05] text-neutral-100 translate-y-[105%]"
                 >
-                  a Full-Stack Web Developer
+                  a Software & AI System
                 </h1>
                 <div
                   ref={blockDevRef}
@@ -172,14 +174,15 @@ export default function HeroSection() {
                 />
               </div>
 
-              <div className="relative overflow-hidden inline-block w-fit">
+              {/* Line 3 (Memiliki huruf 'g' di Engineer) */}
+              <div className="relative overflow-hidden inline-block w-fit pb-[0.15em] -mb-[0.15em]">
                 <h1
                   ref={(el) => {
                     linesRef.current[2] = el;
                   }}
                   className="text-5xl lg:text-6xl xl:text-[66px] font-semibold tracking-[-0.035em] leading-[1.05] text-white translate-y-[105%]"
                 >
-                  based in Jakarta.
+                  Engineer. based in Jakarta.
                 </h1>
                 <div
                   ref={blockJktRef}
@@ -212,7 +215,7 @@ export default function HeroSection() {
           2. TAMPILAN MOBILE
       ========================================================= */}
       <div className="flex md:hidden flex-col px-5 pt-16 pb-3 relative z-10 space-y-4">
-        {/* 1. GAMBAR PALING ATAS */}
+        {/* GAMBAR PALING ATAS */}
         <div className="w-full flex justify-center pt-1">
           <div className="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-md overflow-hidden border border-neutral-800/80 bg-neutral-900/50 backdrop-blur-sm shadow-xl">
             <img
@@ -223,13 +226,13 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* 2. HEADLINE TEKS DI TENGAH */}
+        {/* HEADLINE TEKS DI TENGAH */}
         <div className="flex flex-col gap-0.5 text-left">
           <span className="text-[11px] text-neutral-500 font-mono tracking-wider font-normal block mb-0.5">
             (About me)
           </span>
 
-          <div className="relative overflow-hidden inline-block w-fit">
+          <div className="relative overflow-hidden inline-block w-fit pb-[0.15em] -mb-[0.15em]">
             <h1 className="text-[26px] sm:text-3xl font-semibold tracking-tight leading-[1.12] text-white">
               <span
                 ref={(el) => {
@@ -242,14 +245,14 @@ export default function HeroSection() {
             </h1>
           </div>
 
-          <div className="relative overflow-hidden inline-block w-fit">
+          <div className="relative overflow-hidden inline-block w-fit pb-[0.15em] -mb-[0.15em]">
             <h1
               ref={(el) => {
                 mobileLinesRef.current[1] = el;
               }}
               className="text-[26px] sm:text-3xl font-semibold tracking-tight leading-[1.12] text-neutral-100 translate-y-[105%]"
             >
-              a Full-Stack Web Developer
+              a Software Engineer
             </h1>
             <div
               ref={mobileBlockDevRef}
@@ -257,7 +260,7 @@ export default function HeroSection() {
             />
           </div>
 
-          <div className="relative overflow-hidden inline-block w-fit">
+          <div className="relative overflow-hidden inline-block w-fit pb-[0.15em] -mb-[0.15em]">
             <h1
               ref={(el) => {
                 mobileLinesRef.current[2] = el;
@@ -273,7 +276,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* 3. FOOTER BAR MOBILE */}
+        {/* FOOTER BAR MOBILE */}
         <footer className="w-full flex items-center justify-between pt-2.5 border-t border-neutral-900/80 text-[10px] font-mono text-neutral-500">
           <div>/2026/</div>
           <div className="uppercase tracking-widest text-[9px] text-neutral-400 font-mono">
