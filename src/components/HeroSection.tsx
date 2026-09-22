@@ -166,7 +166,7 @@ export default function HeroSection() {
                   }}
                   className="text-5xl lg:text-6xl xl:text-[66px] font-semibold tracking-[-0.035em] leading-[1.05] text-neutral-100 translate-y-[105%]"
                 >
-                  a Software & AI System
+                  a Full Stack Web Developer
                 </h1>
                 <div
                   ref={blockDevRef}
@@ -182,7 +182,7 @@ export default function HeroSection() {
                   }}
                   className="text-5xl lg:text-6xl xl:text-[66px] font-semibold tracking-[-0.035em] leading-[1.05] text-white translate-y-[105%]"
                 >
-                  Engineer. based in Jakarta.
+                  & AI System Engineer.
                 </h1>
                 <div
                   ref={blockJktRef}
@@ -252,7 +252,7 @@ export default function HeroSection() {
               }}
               className="text-[26px] sm:text-3xl font-semibold tracking-tight leading-[1.12] text-neutral-100 translate-y-[105%]"
             >
-              a Software Engineer
+              a Full Stack Web Developer
             </h1>
             <div
               ref={mobileBlockDevRef}
@@ -267,7 +267,7 @@ export default function HeroSection() {
               }}
               className="text-[26px] sm:text-3xl font-semibold tracking-tight leading-[1.12] text-white translate-y-[105%]"
             >
-              based in Jakarta.
+              & AI System Engineer.
             </h1>
             <div
               ref={mobileBlockJktRef}

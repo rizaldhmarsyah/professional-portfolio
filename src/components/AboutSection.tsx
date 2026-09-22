@@ -20,7 +20,7 @@ export default function AboutSection() {
   const blockRef = useRef<HTMLDivElement>(null);
 
   const bioText =
-    "Hi! I'm Rizal, a Software & AI Systems Engineer with an academic background in Information Systems. I specialize in architecting scalable web platforms, robust backend infrastructures, and applied artificial intelligence solutions. By bridging modern software engineering with Agentic AI capabilities, I design autonomous workflows and digital products focused on driving measurable business value, operational efficiency, and seamless user experiences.";
+    "Hi! I'm Rizal, a Fullstack Web Developer & AI Systems Engineer with an academic background in Information Systems. I specialize in architecting scalable web platforms, robust backend infrastructures, and applied artificial intelligence solutions. By bridging modern software engineering with Agentic AI capabilities, I design autonomous workflows and digital products focused on driving measurable business value, operational efficiency, and seamless user experiences.";
 
   useEffect(() => {
     const ctx = gsap.context(() => {
