@@ -166,7 +166,7 @@ export default function HeroSection() {
                   }}
                   className="text-5xl lg:text-6xl xl:text-[66px] font-semibold tracking-[-0.035em] leading-[1.05] text-neutral-100 translate-y-[105%]"
                 >
-                  a Full Stack Web Developer
+                  a Junior Fullstack Developer
                 </h1>
                 <div
                   ref={blockDevRef}
@@ -252,7 +252,7 @@ export default function HeroSection() {
               }}
               className="text-[26px] sm:text-3xl font-semibold tracking-tight leading-[1.12] text-neutral-100 translate-y-[105%]"
             >
-              a Full Stack Web Developer
+              a Junior Full Stack Developer
             </h1>
             <div
               ref={mobileBlockDevRef}
