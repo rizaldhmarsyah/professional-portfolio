@@ -77,12 +77,13 @@ export default function Home() {
             <HorizontalShowcaseSection />
           </div>
 
+          <div className="relative z-30 bg-[#0C0C0C]">
+            <SkillsSection />
+          </div>
           <div className="relative z-10">
             <BeRealSection />
           </div>
-
           <div className="relative z-30 bg-[#0C0C0C] shadow-[0_30px_60px_rgba(0,0,0,0.95)]">
-            <SkillsSection />
             <RunningText2 />
           </div>
         </div>

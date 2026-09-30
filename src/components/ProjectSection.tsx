@@ -18,7 +18,8 @@ interface Project {
   period?: string;
   category?: string;
   tags?: string[];
-  description: string;
+  description?: string;
+  highlights?: string[];
   about?: string;
   link?: string;
   status?: string;
@@ -34,8 +35,12 @@ const PROJECTS: Project[] = [
     title: "Web Administrator - Intern",
     company: "Lembaga Layanan Pendidikan Tinggi (LLDIKTI) Wilayah III Jakarta",
     period: "September 2025 - February 2026",
-    description:
-      "Spearheaded an end-to-end revamp of the official website to significantly elevate performance and user experience. Handled full-stack development responsibilities by restructuring the modern front-end interface, optimizing underlying database systems, and managing ongoing platform maintenance.",
+    highlights: [
+      "UI/UX & Modern Front-End Revamp",
+      "Database System Optimization",
+      "CMS & Web Content Management",
+      "Platform Maintenance & Web Security",
+    ],
     about:
       "LLDIKTI Wilayah III Jakarta is an official government agency under the Ministry of Higher Education, Science, and Technology, tasked with supervising and improving higher education quality across Jakarta.",
     link: "https://lldikti3.kemdiktisaintek.go.id/adia/",
@@ -49,8 +54,12 @@ const PROJECTS: Project[] = [
     title: "Frontend Web Developer - Intern",
     company: "PT. Amal Ichwan Arindo",
     period: "Maret 2025 - August 2025",
-    description:
-      "Developed and launched an end-to-end recruitment platform using React.js and Next.js. Crafted highly responsive UI components with Framer Motion and Tailwind CSS, backed by seamless API integrations to ensure optimal performance.",
+    highlights: [
+      "End-to-End Recruitment Platform Development",
+      "Responsive UI Design with React.js & Next.js",
+      "Interactive Components with Framer Motion & Tailwind CSS",
+      "RESTful API Integration & Performance Optimization",
+    ],
     about:
       "PT. Amal Ichwan Arindo is a professional human resource and talent acquisition agency delivering modern workforce solutions and staffing services.",
     link: "https://www.sahabatmerantau.id",
@@ -63,11 +72,15 @@ const PROJECTS: Project[] = [
     typeLabel: "FEATURED PROJECT",
     title: "Pixel Sticker",
     category: "Real Project Website",
-    tags: ["FULL STACK", "AI CHATBOT", "AI WORKFLOW"],
-    description:
-      "Designed and built a complete digital ecosystem for Pixel Sticker leveraging AI-accelerated full-stack development. Combines a modern customer-facing web platform featuring an intelligent AI-assisted customer service agent and automated pricing estimation with an internal administrative portal for managing vehicle databases, materials, workshop POS invoices, and real-time financial analytics.",
+    period: "May 2026 - Aug 2026",
+    highlights: [
+      "Full-Stack Web Platform with Integrated CMS",
+      "Interactive 24/7 AI Chatbot Agent for Customer Service & Auto Price Estimations",
+      "User Authentication, Service Booking & Live Order Tracking",
+      "Real-Time Financial Analytics with Income & Expense Records",
+    ],
     about:
-      "Pixel Sticker is a specialized automotive workshop offering premium Paint Protection Film (PPF), vinyl wraps, and custom cutting sticker services with high-precision craftsmanship.",
+      "Pixel Sticker is a specialized automotive workshop offering premium Paint Protection Film (PPF), vinyl wraps, and custom cutting sticker services located at Pasar Mobil Kemayoran Blok J No. 8, Pademangan Timur, Jakarta Utara.",
     link: "https://pixelsticker.biz.id",
     bgImage: "/ps-bg.webp",
     images: [
@@ -84,11 +97,16 @@ const PROJECTS: Project[] = [
     typeLabel: "FEATURED PROJECT",
     title: "Barcainspo",
     category: "Real Project Website",
-    tags: ["NEXT.JS", "FULL STACK", "AI CONTENT CMS", "LIVE EDITOR"],
-    description:
-      "A custom full-stack digital publishing platform built to power a high-traffic football media brand, engineered using AI-driven development workflows. Features a custom CMS admin dashboard with AI-assisted content drafting, live article preview, dynamic content categorization (La Masia, First Team, Transfers), and seamless live Instagram feed integrations.",
+    period: "Sep 2026 - Present",
+    highlights: [
+      "Full-Stack Football & Sports Digital Media Platform",
+      "Custom CMS Driven by Multi-LLM Pipelines (Groq, Mistral & Gemini) for AI Article Drafting",
+      "Live Article Interactive Preview & Dynamic Content Categorization",
+      "SEO-Optimized Infrastructure for Maximum Search Engine Visibility & Traffic Growth",
+      "Automated Live Instagram Media Feed & Social API Integration",
+    ],
     about:
-      "Barcainspo is an independent digital media platform dedicated to FC Barcelona news, tactical analysis, and football culture—consistently generating 1 to 6 million monthly impressions across its media channels.",
+      "Barcainspo is an independent digital sports media platform dedicated to FC Barcelona news, tactical analysis, and football culture—consistently generating 1 to 6 million monthly impressions across its media channels.",
     link: "https://barcainspo.vercel.app",
     bgImage: "/bi-bg.webp",
     images: [
@@ -580,21 +598,16 @@ export default function ProjectSection() {
                     </div>
 
                     <div>
-                      {project.type === "experience" ? (
-                        <span className="bg-white px-2 py-0.5 rounded text-[8px] font-mono tracking-wider text-black font-extrabold uppercase">
-                          <ScrambleText
-                            text={project.typeLabel}
-                            active={isCardActive}
-                          />
-                        </span>
-                      ) : (
-                        <span className="bg-white px-2 py-0.5 rounded text-[8px] font-mono tracking-wider text-black font-extrabold uppercase">
-                          <ScrambleText
-                            text={project.category || "Real Project Website"}
-                            active={isCardActive}
-                          />
-                        </span>
-                      )}
+                      <span className="bg-white px-2 py-0.5 rounded text-[8px] font-mono tracking-wider text-black font-extrabold uppercase">
+                        <ScrambleText
+                          text={
+                            project.type === "experience"
+                              ? project.typeLabel
+                              : project.category || "Real Project Website"
+                          }
+                          active={isCardActive}
+                        />
+                      </span>
                     </div>
                   </div>
 
@@ -612,30 +625,32 @@ export default function ProjectSection() {
                         • {project.period}
                       </span>
                     )}
-                    {project.tags && (
-                      <div className="flex flex-wrap gap-1 mt-1">
-                        {project.tags.map((tag, tIdx) => (
-                          <span
-                            key={tIdx}
-                            className="text-[8px] font-mono text-neutral-300 bg-white/10 border border-white/15 px-1.5 py-0.5 rounded uppercase"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    )}
                   </div>
 
                   <div className="flex flex-col gap-2 shrink-0">
-                    <div className="bg-white/[0.06] border border-white/15 p-2.5 rounded-lg w-full">
-                      <p className="text-white/90 text-[10px] leading-relaxed font-light">
-                        {project.description}
-                      </p>
+                    <div className="bg-white/[0.08] border border-white/20 p-2.5 rounded-lg w-full">
+                      {project.highlights ? (
+                        <ul className="space-y-1">
+                          {project.highlights.map((point, hIdx) => (
+                            <li
+                              key={hIdx}
+                              className="flex items-center gap-1.5 text-white/90 text-[10px] font-light"
+                            >
+                              <span className="w-1 h-1 rounded-full bg-[#FF7A59] shrink-0" />
+                              <span>{point}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="text-white/90 text-[10px] leading-relaxed font-light">
+                          {project.description}
+                        </p>
+                      )}
                     </div>
 
                     {project.about && (
-                      <div className="bg-white/[0.03] border border-white/10 p-2 rounded-lg w-full">
-                        <p className="text-white/60 text-[9px] leading-relaxed font-light italic">
+                      <div className="bg-white/[0.08] border border-white/20 p-2.5 rounded-lg w-full">
+                        <p className="text-white/90 text-[10px] leading-relaxed font-light">
                           {project.about}
                         </p>
                       </div>
@@ -671,50 +686,32 @@ export default function ProjectSection() {
                 <div className="hidden md:flex flex-col justify-between h-full">
                   <div className="flex justify-end items-start z-10 w-full pt-1">
                     <div className="inline-flex flex-col items-end text-right w-fit max-w-full">
-                      {project.type === "experience" ? (
-                        <>
-                          <span className="inline-block bg-white border border-white/30 shadow-2xl px-3.5 py-1.5 rounded-lg text-[13px] font-mono tracking-[0.2em] text-black uppercase font-extrabold mb-1 select-none">
-                            <ScrambleText
-                              text={project.typeLabel}
-                              active={isCardActive}
-                            />
+                      <span className="inline-block bg-white border border-white/30 shadow-2xl px-3.5 py-1.5 rounded-lg text-[13px] font-mono tracking-[0.2em] text-black uppercase font-extrabold mb-1 select-none">
+                        <ScrambleText
+                          text={
+                            project.type === "experience"
+                              ? project.typeLabel
+                              : project.category || "Real Project Website"
+                          }
+                          active={isCardActive}
+                        />
+                      </span>
+
+                      <div className="w-full h-[1px] bg-white/20 my-1.5" />
+
+                      {project.company && (
+                        <span className="text-[16px] font-sans font-semibold tracking-wide text-white leading-tight">
+                          {project.company}
+                        </span>
+                      )}
+
+                      {project.period && (
+                        <div className="mt-2 inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-[#FB4516]/10 border border-[#FB4516]/40">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#FB4516] animate-pulse" />
+                          <span className="text-xs font-mono text-[#FF7A59] font-medium tracking-wider">
+                            {project.period}
                           </span>
-
-                          <div className="w-full h-[1px] bg-white/20 my-1.5" />
-
-                          <span className="text-[16px] font-sans font-semibold tracking-wide text-white leading-tight">
-                            {project.company}
-                          </span>
-
-                          <div className="mt-2 inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-[#FB4516]/10 border border-[#FB4516]/40">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#FB4516] animate-pulse" />
-                            <span className="text-xs font-mono text-[#FF7A59] font-medium tracking-wider">
-                              {project.period}
-                            </span>
-                          </div>
-                        </>
-                      ) : (
-                        <>
-                          <span className="inline-block bg-white border border-white/30 shadow-2xl px-3.5 py-1.5 rounded-lg text-[13px] font-mono tracking-[0.2em] text-black uppercase font-extrabold mb-1 select-none">
-                            <ScrambleText
-                              text={project.category || "Real Project Website"}
-                              active={isCardActive}
-                            />
-                          </span>
-
-                          <div className="w-full h-[1px] bg-white/20 my-1.5" />
-
-                          <div className="flex flex-wrap justify-end gap-1.5 mt-0.5">
-                            {project.tags?.map((tag, tIdx) => (
-                              <span
-                                key={tIdx}
-                                className="text-[10px] font-mono text-neutral-200 bg-white/[0.08] border border-white/20 px-2.5 py-0.5 rounded-md tracking-wider uppercase font-medium"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                        </>
+                        </div>
                       )}
                     </div>
                   </div>
@@ -725,15 +722,29 @@ export default function ProjectSection() {
                         {project.title}
                       </h2>
 
-                      <div className="bg-white/[0.08] border border-white/20 p-3 lg:p-3.5 rounded-xl max-w-md">
-                        <p className="text-white/90 text-xs lg:text-sm leading-relaxed font-light">
-                          {project.description}
-                        </p>
+                      <div className="bg-white/[0.08] border border-white/20 p-3 lg:p-3.5 rounded-xl max-w-md w-full">
+                        {project.highlights ? (
+                          <ul className="space-y-1.5">
+                            {project.highlights.map((point, hIdx) => (
+                              <li
+                                key={hIdx}
+                                className="flex items-center gap-2 text-xs lg:text-sm text-white/90 font-light"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#FF7A59] shrink-0" />
+                                <span>{point}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p className="text-white/90 text-xs lg:text-sm leading-relaxed font-light">
+                            {project.description}
+                          </p>
+                        )}
                       </div>
 
                       {project.about && (
-                        <div className="bg-white/[0.05] border border-white/15 p-2.5 lg:p-3 rounded-xl max-w-md mt-2.5 lg:mt-3">
-                          <p className="text-white/60 text-[11px] lg:text-xs leading-relaxed font-light italic">
+                        <div className="bg-white/[0.08] border border-white/20 p-3 lg:p-3.5 rounded-xl max-w-md w-full mt-2.5 lg:mt-3">
+                          <p className="text-white/90 text-xs lg:text-sm leading-relaxed font-light">
                             {project.about}
                           </p>
                         </div>
